@@ -61,7 +61,7 @@ namespace Sustainsys.Saml2.Owin
         private AuthenticationTicket CreateErrorAuthenticationTicket(HttpRequestData httpRequestData, Exception ex)
         {
             AuthenticationProperties authProperties = null;
-            if (httpRequestData.StoredRequestState != null)
+            if (httpRequestData.StoredRequestState?.ReturnUrl != null)
             {
                 authProperties = new AuthenticationProperties(
                     httpRequestData.StoredRequestState.RelayData);
